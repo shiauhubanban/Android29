@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.ViewFlipper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,6 +21,7 @@ import java.util.LinkedList;
 public class MainActivity extends AppCompatActivity {
     private ViewPager pager;
     private ArrayList<View> views;
+    private ViewFlipper flipper;
 
 
     @Override
@@ -43,6 +45,30 @@ public class MainActivity extends AppCompatActivity {
         views.add(page0);
         views.add(page1);views.add(page2);views.add(page3);
         views.add(page4);
+
+
+        flipper = (ViewFlipper) page2.findViewById(R.id.flipper);
+        View f0 = flipper.getChildAt(0);
+        View f1 = flipper.getChildAt(1);
+        View f2 = flipper.getChildAt(2);
+        f0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                flipper.showNext();
+            }
+        });
+        f1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                flipper.showNext();
+            }
+        });
+        f2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                flipper.showNext();
+            }
+        });
 
         pager.setAdapter(new MyPagerAdapter());
         pager.setOnPageChangeListener(new MyPageChangeListener());
