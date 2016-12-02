@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public boolean isViewFromObject(View view, Object object) {
-            return false;
+            return view == object;
         }
 
         @Override
