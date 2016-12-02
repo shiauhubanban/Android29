@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
@@ -41,6 +42,22 @@ public class MainActivity extends AppCompatActivity {
         public boolean isViewFromObject(View view, Object object) {
             return false;
         }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            View view = views.get(position);
+            pager.addView(view);
+            return view;
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            View view = views.get(position);
+            pager.removeView(view);
+            //super.destroyItem(container, position, object);
+        }
+
+
     }
 
 }
